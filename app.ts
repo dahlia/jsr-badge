@@ -75,10 +75,16 @@ function respondWithBadge<T extends string>(
 }
 
 const router = new Router();
+
+router.get("/", (context) => {
+  context.response.redirect("https://github.com/dahlia/jsr-badge");
+});
+
 router.get("/@:scope/:name/unstable.svg", async (context) => {
   const version = await getVersion({ ...context.params, filter: "unstable" });
   respondWithBadge(context, { ...context.params, version });
 });
+
 router.get("/@:scope/:name/stable.svg", async (context) => {
   const version = await getVersion({ ...context.params, filter: "stable" });
   respondWithBadge(context, { ...context.params, version });
