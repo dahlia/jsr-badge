@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "run": "deno run --allow-net --allow-env=DENO_DEPLOYMENT_ID",
+    "start": "deno task run app.ts",
+    "dev": "deno task run --watch app.ts"
+  }
+}
